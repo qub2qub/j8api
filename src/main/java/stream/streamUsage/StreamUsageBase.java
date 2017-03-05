@@ -7,8 +7,6 @@ import java.util.stream.Collectors;
 /**
  * Stream usage for:
  * filter, findFirst, findAny, skip, limit and count.
- *
- * Created by dkorolev on 1/4/2017.
  */
 public class StreamUsageBase {
     public static void main(String[] args) {

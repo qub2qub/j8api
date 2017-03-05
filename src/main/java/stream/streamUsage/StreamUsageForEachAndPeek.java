@@ -9,8 +9,6 @@ import java.util.stream.Collectors;
  * Usage of ForEach and Peek.
  * Both change elements in stream.
  * The diff is ForEach - terminal, Peek - conveyor.
- *
- * Created by dkorolev on 1/5/2017.
  */
 public class StreamUsageForEachAndPeek {
     public static void main(String[] args) {

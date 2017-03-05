@@ -1,8 +1,5 @@
 package lambda.simpleExamples.runnable;
 
-/**
- * Created by dkorolev on 7/23/2016.
- */
 public class RunnableTest {
 
     public static void main(String[] args) {

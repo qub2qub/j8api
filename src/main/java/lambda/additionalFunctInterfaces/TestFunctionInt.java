@@ -7,8 +7,6 @@ import java.util.function.Function;
 
 /**
  * Test with function interface.
- *
- * Created by dkorolev on 7/24/2016.
  */
 public class TestFunctionInt {
 

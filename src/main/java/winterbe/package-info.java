@@ -1,9 +1,8 @@
 /**
- * Created by Denis on 05-03-2017
+ * <p>examples from Benjamin Winterberg</p>
  *
- * examples from Benjamin Winterberg
+ * <p>https://github.com/winterbe/java8-tutorial</p>
  *
- * https://github.com/winterbe/java8-tutorial
- *
+ * <p>http://winterbe.com/blog/</p>
  */
 package winterbe;

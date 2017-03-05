@@ -8,8 +8,6 @@ import java.util.stream.Collectors;
 
 /**
  * Stream usage for distinct.
- *
- * Created by dkorolev on 1/4/2017.
  */
 public class StreamUsageDistinct {
 

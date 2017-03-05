@@ -13,8 +13,6 @@ import java.util.stream.Stream;
 
 /**
  * Types how to declare streams.
- *
- * Created by dkorolev on 1/2/2017.
  */
 public class StreamCreation {
 
