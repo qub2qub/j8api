@@ -10,7 +10,19 @@ import java.util.List;
 /**
  * Created by Denis on 08-03-2017
  */
-public class Comparing {
+public class MyComparing {
+
+    public static void main(String[] args) {
+        List<Pers> list = new ArrayList<>();
+        list.add(new Pers("BBB",  66));
+        list.add(new Pers("ABC",  123));
+        list.add(new Pers("DDD",  99));
+        list.add(new Pers("CCC",  77));
+        list.add(new Pers("AAA",  77));
+        list.add(new Pers("CCC",  66));
+
+        runComparing(list);
+    }
 
     @Immutable
     static class Pers {
@@ -36,15 +48,7 @@ public class Comparing {
         }
     }
 
-    public static void main(String[] args) {
-        List<Pers> list = new ArrayList<>();
-        list.add(new Pers("BBB",  66));
-        list.add(new Pers("ABC",  123));
-        list.add(new Pers("DDD",  99));
-        list.add(new Pers("CCC",  77));
-        list.add(new Pers("AAA",  77));
-        list.add(new Pers("CCC",  66));
-
+    private static void runComparing(List<Pers> list) {
         System.out.println(list);
         list.sort(Comparator.comparing(Pers::getName));
         System.out.println(list);
@@ -57,8 +61,6 @@ public class Comparing {
         System.out.println(list);
         list.sort(Comparator.comparing(Pers::getAge).thenComparing(Pers::getName));
         System.out.println(list);
-    }
-
     /*
 [{BBB=66}, {ABC=123}, {DDD=99}, {CCC=77}, {AAA=77}, {CCC=66}]
 [{AAA=77}, {ABC=123}, {BBB=66}, {CCC=77}, {CCC=66}, {DDD=99}]
@@ -68,4 +70,6 @@ public class Comparing {
 [{CCC=66}, {BBB=66}, {CCC=77}, {AAA=77}, {DDD=99}, {ABC=123}]
 [{BBB=66}, {CCC=66}, {AAA=77}, {CCC=77}, {DDD=99}, {ABC=123}]
      */
+    }
+
 }
