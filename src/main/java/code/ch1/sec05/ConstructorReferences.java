@@ -1,3 +1,5 @@
+package code.ch1.sec05;
+
 import java.util.*;
 import java.util.stream.*;
 
