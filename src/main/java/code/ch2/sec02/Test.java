@@ -1,3 +1,5 @@
+package code.ch2.sec02;
+
 import java.io.*;
 import java.math.*;
 import java.nio.charset.*;

@@ -6,7 +6,7 @@ import org.junit.Test;
 import java.util.function.IntUnaryOperator;
 
 public class FibonacciTest {
-
+/*
     // Фибоначчийн тоог хүн төрөлхтөн өөрсдийн ахуй (source: Wikipedia MN)
     private IntUnaryOperator fib =
             (n) -> (n < 2) ? n : fib.applyAsInt(n - 1) + fib.applyAsInt(n - 2);
@@ -23,7 +23,7 @@ public class FibonacciTest {
     public void test10_static() {
         Assert.assertEquals(55, fib_static.applyAsInt(10));
     }
-
+*/
 //    @Test
 //    public void test10_bad() { // should not compile
 //        IntUnaryOperator fib =

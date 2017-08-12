@@ -1,3 +1,5 @@
+package code.ch7.sec02;
+
 import java.io.*;
 import java.nio.file.*;
 import javax.script.*;

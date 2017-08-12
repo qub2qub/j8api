@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.stream.IntStream;
-import java.util.stream.Streams;
+//import java.util.stream.Streams;
 
 public class ShortCircuitTest {
 
