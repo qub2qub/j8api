@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * Created by Denis_Maliarevich on 2017-06-15
+ * Created on 2017-06-15
  */
 public class LocaleLanguage
 {
@@ -62,6 +62,14 @@ public class LocaleLanguage
     return map;
   }
 
+
+  public void initDefaultLanguageCodes()
+  {
+    Map<String, String> map = Arrays.stream( DateFormat.getAvailableLocales() )
+//        .filter( locale -> StringUtils.isNotBlank( locale.getDisplayLanguage() ) )
+        .collect(Collectors.toMap( Locale::getLanguage, Locale::getDisplayLanguage, ( oldValue, newValue ) -> oldValue ) );
+//    map.forEach( ( k, v ) -> LANGUAGE_CODES.put( v.toUpperCase(), k ) );
+  }
 
   public static void main(String[] args) {
 
