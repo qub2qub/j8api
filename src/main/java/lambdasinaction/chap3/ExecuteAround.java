@@ -1,41 +1,32 @@
 package lambdasinaction.chap3;
 
 import java.io.*;
+
 public class ExecuteAround {
-
-	public static void main(String ...args) throws IOException{
-
-        // method we want to refactor to make more flexible
-        String result = processFileLimited();
-        System.out.println(result);
-
-        System.out.println("---");
-
-		String oneLine = processFile((BufferedReader b) -> b.readLine());
-		System.out.println(oneLine);
-
-		String twoLines = processFile((BufferedReader b) -> b.readLine() + b.readLine());
-		System.out.println(twoLines);
-
-	}
-
-    public static String processFileLimited() throws IOException {
-        try (BufferedReader br =
-                     new BufferedReader(new FileReader("lambdasinaction/chap3/data.txt"))) {
-            return br.readLine();
-        }
+  
+  public static final String FILE_PATH = "D:\\Denis_Work\\github_qub2qub\\j8api\\src\\main\\java\\lambdasinaction\\chap3\\data.txt";
+  
+  public static void main(String... args) throws IOException {
+//    InputStream res = ExecuteAround.class.getResourceAsStream("/lambdasinaction/chap3/data.txt");
+//    InputStreamReader is = new InputStreamReader(res);
+//    FileReader fr = new FileReader("D:\\Denis_Work\\github_qub2qub\\j8api\\src\\main\\java\\lambdasinaction\\chap3\\data.txt");
+    System.out.println( processFileLimited());
+    System.out.println("-------------------------");
+    System.out.println( processFile(BufferedReader::readLine));
+    System.out.println( processFile((BufferedReader b) -> "["+b.readLine() +"\n" +  b.readLine()+"]"));
+  }
+  
+  public static String processFileLimited() throws IOException {
+    try (BufferedReader br = new BufferedReader(
+      new FileReader(FILE_PATH)
+    )) {
+      return br.readLine();
     }
-
-
-	public static String processFile(BufferedReaderProcessor p) throws IOException {
-		try(BufferedReader br = new BufferedReader(new FileReader("lambdasinaction/chap3/data.txt"))){
-			return p.process(br);
-		}
-
-	}
-
-	public interface BufferedReaderProcessor{
-		public String process(BufferedReader b) throws IOException;
-
-	}
+  }
+  // ТУТ ОПИСАН ExecuteAround КОД, ВНУТРИ КОТОРОГО ВЫЗЫВАЕТСЯ ПОВЕДЕНИЕ
+  public static String processFile(BufferedReaderProcessor p) throws IOException {
+    try (BufferedReader br = new BufferedReader( new FileReader(FILE_PATH) )) {
+      return p.process(br);
+    }
+  }
 }

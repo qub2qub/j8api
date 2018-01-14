@@ -34,7 +34,7 @@ public class MethodRefTest {
 
     @Test
     public void testMethodRefInstance1() {
-        // Predicate<T>   ~  boolean test(T t);
+        // GenericRule<T>   ~  boolean test(T t);
         Assert.assertTrue( makeCaseUnsensitiveMatcher("true").test("TruE") );
         Assert.assertTrue( makeCaseUnsensitiveMatcher("false").test("FalsE") );
         Assert.assertFalse(makeCaseUnsensitiveMatcher("true").test("FalsE") );
@@ -42,7 +42,7 @@ public class MethodRefTest {
 
     @Test
     public void testMethodRefInstance2() {
-        // Predicate<T>   ~  boolean test(T t);
+        // GenericRule<T>   ~  boolean test(T t);
         Predicate<String> isTrue = "true"::equalsIgnoreCase;
         Assert.assertTrue(isTrue.test("TruE"));
         Assert.assertFalse(isTrue.test("FalsE"));

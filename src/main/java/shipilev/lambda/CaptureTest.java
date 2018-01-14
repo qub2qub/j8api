@@ -47,7 +47,7 @@ public class CaptureTest {
 
     @Test
     public void testLambda1() {
-        // Predicate<T>   ~  boolean test(T t);
+        // GenericRule<T>   ~  boolean test(T t);
         Assert.assertTrue( makeCaseUnsensitiveMatcher("true").test("TruE") );
         Assert.assertTrue( makeCaseUnsensitiveMatcher("false").test("FalsE") );
         Assert.assertFalse(makeCaseUnsensitiveMatcher("true").test("FalsE") );

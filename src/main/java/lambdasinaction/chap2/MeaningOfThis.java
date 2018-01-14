@@ -10,7 +10,8 @@ public class MeaningOfThis
 			public final int value = 5;
 			public void run(){
 				int value = 10;
-				System.out.println(this.value);
+				System.out.println(this.value); // будет значение из внутреннего класса
+				//this refers to the enclosing Runnable, not the enclosing class MeaningOfThis.
 			}
 		};
 		r.run(); 

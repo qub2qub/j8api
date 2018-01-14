@@ -81,7 +81,8 @@ public class LocaleLanguage
 //        .sorted(Comparator.comparing(Locale::getDisplayLanguage))
 //        .collect(Collectors.toMap(Locale::getDisplayLanguage,Locale::toString, (s, a) -> s + ", " + a));
 //        .collect(Collectors.groupingBy(e -> e.));
-        .collect(Collectors.toMap(Locale::getLanguage,Locale::getDisplayLanguage, (s, a) -> s));
+//        .collect(Collectors.toMap(Locale::getLanguage,Locale::getDisplayLanguage, (s, a) -> s));
+    .collect(Collectors.toMap( Locale::getLanguage, Locale::getDisplayLanguage, ( oldValue, newValue ) -> oldValue ) );
 
     TreeMap<String,String> tree = new TreeMap<>(map);
 //    tree.forEach( (k,v) -> System.out.println(k+"="+v.toUpperCase()));
