@@ -24,8 +24,13 @@ public class UtilFunctions {
     System.out.println(evenNumbers.test(1000));
     Predicate<Integer> oddNumbers = (Integer i) -> i % 2 == 1; // false (boxing)
     System.out.println(oddNumbers.test(1000));
-    
-    
+  
+    Function<Integer, Integer> f = x -> x + 1; // sum
+    Function<Integer, Integer> g = x -> x * 2; // multiply
+    Function<Integer, Integer> then = f.andThen(g); // g(f(x))
+    Function<Integer, Integer> compose = f.compose(g); //f(g(x))
+    System.out.println("then=g(f(x))=(3+1)*2="+then.apply(3));
+    System.out.println("compose=f(g(x))=(3*2)+1="+compose.apply(3));
   }
   
   public static <T, R> List<R> map(List<T> list, Function<T, R> f) {

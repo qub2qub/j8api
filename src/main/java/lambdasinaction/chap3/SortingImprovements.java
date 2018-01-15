@@ -4,7 +4,7 @@ import java.util.*;
 
 import static java.util.Comparator.comparing;
 
-public class Sorting {
+public class SortingImprovements {
 
     public static void main(String...args){
         List<Apple> inventory = new ArrayList<>();
