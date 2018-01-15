@@ -77,6 +77,9 @@ public class LocaleLanguage
 //    System.out.println(LanguageCodes.valueOf("dutch"));
 //    System.out.println(LanguageCodes.valueOf("zzxy"));
 
+    Locale locale = new Locale("ru_RU");
+    System.out.println("locale="+ locale.getDisplayName());
+/*
     Map<String,String> map = Arrays.stream( DateFormat.getAvailableLocales() )
 //        .sorted(Comparator.comparing(Locale::getDisplayLanguage))
 //        .collect(Collectors.toMap(Locale::getDisplayLanguage,Locale::toString, (s, a) -> s + ", " + a));
@@ -87,7 +90,7 @@ public class LocaleLanguage
     TreeMap<String,String> tree = new TreeMap<>(map);
 //    tree.forEach( (k,v) -> System.out.println(k+"="+v.toUpperCase()));
     tree.forEach( (k,v) -> System.out.println("["+k+"]=["+v.toUpperCase()+"]"));
-
+*/
 //    findLocaleByLanguagePreferences1("ENGLISH");
 //    findLocaleByLanguagePreferences1("French");
 //    findLocaleByLanguagePreferences1("dutch");
