@@ -7,7 +7,6 @@ import java.util.function.IntUnaryOperator;
 
 public class FibonacciTest {
 /*
-    // Фибоначчийн тоог хүн төрөлхтөн өөрсдийн ахуй (source: Wikipedia MN)
     private IntUnaryOperator fib =
             (n) -> (n < 2) ? n : fib.applyAsInt(n - 1) + fib.applyAsInt(n - 2);
 

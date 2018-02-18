@@ -31,6 +31,7 @@ public class SortingImprovements {
         
         inventory.set(1, new Apple(10, "red"));
         inventory.sort(comparing(Apple::getWeight));
+        inventory.sort(comparing(Apple::getWeight).reversed());
         System.out.println(inventory);       
     }
 

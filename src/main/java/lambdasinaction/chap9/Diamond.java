@@ -6,15 +6,25 @@ public class Diamond{
         new D().hello();
     }
 
-    static interface A{
-        public default void hello(){
+    interface A{
+        default void hello(){
             System.out.println("Hello from A");
         }
     }
+    interface E {
+        default void hello(){
+            System.out.println("Hello from E");
+        }
+    }
+//    static class F implements A, E {}
 
     static interface B extends A { }
 
     static interface C extends A {
+        @Override
+        default void hello(){
+            System.out.println("Hello from C");
+        }
     }
 
     static class D implements B, C {
