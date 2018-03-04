@@ -1,10 +1,11 @@
 package lambdasinaction.chap7;
 
 import java.util.Spliterator;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 import java.util.stream.StreamSupport;
 
-public class WordCount {
+public class RunWordCount {
   
   // the first sentence of Dante’s Inferno
   public static final String SENTENCE =
@@ -12,8 +13,11 @@ public class WordCount {
   
   public static void main(String[] args) {
     System.out.println("availableProcessors=" + Runtime.getRuntime().availableProcessors());
-    System.out.println("Found " + countWordsIteratively(SENTENCE) + " words");
-    System.out.println("Found " + countWords(SENTENCE) + " words");
+    System.out.println("1 Found " + countWordsIteratively(SENTENCE) + " words");
+    System.out.println("2 Found " + countWordsCalc(
+      IntStream.range(0, SENTENCE.length()).mapToObj(SENTENCE::charAt).parallel()
+    )      + " words");
+    System.out.println("3 Found " + countWordsStr(SENTENCE) + " words");
   }
   
   public static int countWordsIteratively(String s) {
@@ -33,17 +37,18 @@ public class WordCount {
     return counter;
   }
   
-  public static int countWords(String s) {
+  public static int countWordsStr(String s) {
 //    Stream<Character> stream = IntStream.range(0, s.length())
 //      .mapToObj(SENTENCE::charAt).parallel();
-    Spliterator<Character> spliterator = new WordCounterSpliterator(s);
+    Spliterator<Character> spliterator = new WordSpliterator(s);
     Stream<Character> stream = StreamSupport.stream(spliterator, true);
     
-    return countWords(stream);
+    return countWordsCalc(stream);
   }
   
-  private static int countWords(Stream<Character> stream) {
-    WordCounter wordCounter = stream.reduce(new WordCounter(0, true),
+  private static int countWordsCalc(Stream<Character> stream) {
+    WordCounter wordCounter = stream.reduce(
+      new WordCounter(0, true),
       WordCounter::accumulate,
       WordCounter::combine);
     return wordCounter.getCount();
