@@ -9,7 +9,7 @@ public class RunWordCount {
   
   // the first sentence of Dante’s Inferno
   public static final String SENTENCE =
-    "Nel mezzo del cammin di nostra       vita mi  ritrovai in una  selva oscura che la  dritta via era   smarrita";
+    "Nel mezzo del cammin di nostranostranostranostranostra       vita mi  ritrovai in una  selva oscura che la  dritta via era   smarrita";
   
   public static void main(String[] args) {
     System.out.println("availableProcessors=" + Runtime.getRuntime().availableProcessors());
@@ -40,14 +40,13 @@ public class RunWordCount {
   public static int countWordsStr(String s) {
 //    Stream<Character> stream = IntStream.range(0, s.length())
 //      .mapToObj(SENTENCE::charAt).parallel();
-    Spliterator<Character> spliterator = new WordSpliterator(s);
-    Stream<Character> stream = StreamSupport.stream(spliterator, true);
+    Stream<Character> stream = StreamSupport.stream(new WordSpliterator(s), true);
     
     return countWordsCalc(stream);
   }
   
   private static int countWordsCalc(Stream<Character> stream) {
-    WordCounter wordCounter = stream.reduce(
+    WordCounter wordCounter = stream/*.parallel()*/.reduce(
       new WordCounter(0, true),
       WordCounter::accumulate,
       WordCounter::combine);

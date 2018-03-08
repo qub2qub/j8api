@@ -48,6 +48,6 @@ class WordSpliterator implements Spliterator<Character> {
     
     @Override
     public int characteristics() {
-      return ORDERED + SIZED + SUBSIZED + NONNULL + IMMUTABLE;
+      return ORDERED + SIZED + SUBSIZED + NONNULL + IMMUTABLE/* + CONCURRENT*/;
     }
   }

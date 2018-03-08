@@ -1,4 +1,4 @@
-package lambdasinaction.chap8;
+package lambdasinaction.chap8.strategy;
 
 
 public class StrategyMain {
