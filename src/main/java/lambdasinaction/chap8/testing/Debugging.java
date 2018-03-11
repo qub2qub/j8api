@@ -1,26 +1,24 @@
 package lambdasinaction.chap8.testing;
 
-import static org.junit.Assert.assertEquals;
-
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Created on 2018-03-10
+ */
 public class Debugging {
-  
-  public static void main(String[] args) throws Exception {
-  
-    testMoveRightBy();
+    public static void main(String[] args) {
     
-    List<XYPoint> points = Arrays.asList(new XYPoint(12, 2), null);
-    points.stream().map(XYPoint::getX).forEach(System.out::println); // map(p -> p.getX())
-  }
-  
-  public static void testMoveRightBy() throws Exception {
-    XYPoint p1 = new XYPoint(5, 5);
-    XYPoint p2 = p1.moveRightBy(10);
+        List<XYPoint> points = Arrays.asList(new XYPoint(4, 5), new XYPoint(11, 22), null);
+//        points.stream().map(XYPoint::getX).forEach(System.out::println);
+//        points.stream().map(p -> p.getX()).forEach(System.out::println);
     
-    assertEquals(15, p2.getX());
-    assertEquals(5, p2.getY());
-  }
-  
+        List<Integer> numbers = Arrays.asList(1, 2, 3);
+        numbers.stream().map(Debugging::divideByZero).forEach(System
+            .out::println);
+    }
+    
+    public static int divideByZero(int n){
+        return n / 0;
+    }
 }

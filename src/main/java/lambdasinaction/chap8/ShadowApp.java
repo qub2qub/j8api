@@ -19,6 +19,21 @@ public class ShadowApp
         });
         
         doSomething((Task)() -> System.out.println("Danger danger!!"));
+    
+        int b = 10;
+    /*Runnable r1 = () -> {
+      int a = 2;
+      System.out.println(a);
+    };*/
+        Runnable r2 = new Runnable(){
+            int a = 3;
+            public void run(){
+                int a = 2;
+                System.out.println(a + this.a+b);
+            }
+        };
+    
+        new Thread(r2).start();
     }
     
     

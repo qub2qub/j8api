@@ -1,25 +1,24 @@
-package lambdasinaction.chap9;
+package lambdasinaction.chap9.multi.inherit;
 
-public class Ambiguous{
-
+public class DiamondAmbiguous {
+    
     public static void main(String... args) {
         new C().hello();
     }
-
-    static interface A{
-        public default void hello() {
+    interface A {
+        default void hello() {
             System.out.println("Hello from A");
         }
     }
-
-    static interface B {
-        public default void hello() {
+    
+    interface B {
+        default void hello() {
             System.out.println("Hello from B");
         }
     }
-
+    
     static class C implements B, A {
-        public void hello(){
+        public void hello() {
             A.super.hello();
         }
     }

@@ -1,4 +1,4 @@
-package lambdasinaction.chap9;
+package lambdasinaction.chap9.multi.inherit;
 
 public class MostSpecific{
 
