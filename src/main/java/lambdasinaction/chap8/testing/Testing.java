@@ -40,7 +40,7 @@ public class Testing {
     assertEquals(expectedPoints, newPoints);
   }
   
-  public static void testFilter() throws Exception{
+  public static void testFilter() throws Exception {
     List<Integer> numbers = Arrays.asList(1, 2, 3, 4);
     List<Integer> even = GenericsFilter.filter(numbers, i -> i % 2 == 0);
     List<Integer> smallerThanThree = GenericsFilter.filter(numbers, i -> i < 3);
