@@ -34,6 +34,8 @@ public class BestPriceFinderDiscount {
             findPricesStream(product)
             .collect(Collectors.<CompletableFuture<String>>toList());
         
+//        priceFutures.forEach(f -> f.join());
+        
         // Wait for the completion of all asynchronous operations.
         // Wait for all the Futures in the stream to be completed and extract their respective results.
         return priceFutures.stream()
@@ -49,9 +51,11 @@ public class BestPriceFinderDiscount {
             // Transform the String returned by a shop into a Quote object when it becomes available.
             .map(future -> future.thenApply(Quote::parse))
             // Compose the resulting Future with another asynchronous task, applying the discount code.
-            .map(future -> future.thenCompose(
-                quote -> CompletableFuture.supplyAsync(
-                    () -> Discount.applyDiscount(quote), SHOP_EXECUTOR)));
+            .map(future -> future.thenApply(Discount::applyDiscount));
+            
+//            .map(future -> future.thenCompose(
+//                quote -> CompletableFuture.supplyAsync(
+//                    () -> Discount.applyDiscount(quote), SHOP_EXECUTOR)));
     }
     
     public void printPricesStreamFastestResponse(String product) {

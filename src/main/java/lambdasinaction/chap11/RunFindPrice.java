@@ -38,9 +38,9 @@ public class RunFindPrice {
     private static void runV3usd() {
         System.out.println("V3usd >>>");
         execute("combined USDJava7", () -> exchange.findPricesInUSDJava7(PRODUCT));
-//        execute("combined USD1", () -> exchange.findPricesInUSD(PRODUCT));
-//        execute("combined USD2", () -> exchange.findPricesInUSD2(PRODUCT));
-//        execute("combined USD3", () -> exchange.findPricesInUSD3(PRODUCT));
+        execute("combined USD1", () -> exchange.findPricesInUSD(PRODUCT));
+        execute("combined USD2", () -> exchange.findPricesInUSD2(PRODUCT));
+        execute("combined USD3", () -> exchange.findPricesInUSD3(PRODUCT));
         execute("combined USD4", () -> exchange.findPricesInUSD4(PRODUCT));
     }
     

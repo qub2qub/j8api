@@ -30,6 +30,7 @@ public class Shop2Exchange {
         // Execute the computation asynchronously in a different Thread.
         new Thread(() -> {
             double price = calculatePrice(product);
+//            futurePrice.completeExceptionally(new RuntimeException("not enough time"));
             // Set the value returned by the long computation on the Future when it becomes available.
             futurePrice.complete(price);
         }).start();
